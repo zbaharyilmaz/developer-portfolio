@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
+import { styles, fontFamily } from "@/utils/styles";
+import { animations } from "@/hooks/useAnimations";
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -133,9 +135,10 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-4xl md:text-6xl font-bold mb-8 text-dune-gold font-display drop-shadow-2xl"
+          className="text-5xl md:text-7xl font-bold mb-8 text-dune-gold drop-shadow-2xl"
+          style={{ fontFamily }}
         >
-          Bahar Türksoy
+          BAHAR TURKSOY
         </motion.h1>
 
         {/* Subtitle */}
@@ -143,7 +146,8 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-2xl md:text-3xl text-dune-sand mb-16 font-light tracking-wider font-sans drop-shadow-lg"
+          className="text-3xl md:text-4xl text-dune-sand mb-16 font-light tracking-wider drop-shadow-lg"
+          style={{ fontFamily }}
         >
           Full Stack Development
         </motion.p>
@@ -157,28 +161,24 @@ const Hero = () => {
         >
           <motion.a
             href="#portfolio"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(255, 158, 0, 0.5)",
-            }}
+            whileHover={animations.hover}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-dune-gold rounded-full font-medium text-dune-dark hover:bg-dune-gold/90 transition-all duration-300 border border-dune-gold/30 font-sans"
+            className={styles.primaryButton}
+            style={{ fontFamily }}
           >
-            View My Work
+            🚀 Explore Projects
           </motion.a>
 
           <motion.a
             href="https://www.linkedin.com/in/zbaharyilmaz/"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(255, 158, 0, 0.3)",
-            }}
+            whileHover={animations.hover}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 border border-dune-gold rounded-full font-medium text-dune-gold hover:bg-dune-gold/10 transition-all duration-300 font-sans"
+            className={styles.secondaryButton}
+            style={{ fontFamily }}
           >
-            Get In Touch
+            💬 Let&apos;s Connect
           </motion.a>
         </motion.div>
 
@@ -190,24 +190,20 @@ const Hero = () => {
           className="flex justify-center space-x-8 mb-12"
         >
           <motion.a
-            whileHover={{
-              scale: 1.2,
-              rotate: 5,
-              boxShadow: "0 0 20px rgba(255, 158, 0, 0.4)",
-            }}
+            whileHover={animations.socialHover}
             href="https://github.com/zbaharyilmaz"
-            className="p-4 bg-custom-orange/10 rounded-full hover:bg-custom-orange/20 transition-all duration-300 border border-custom-orange/30"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIcon}
           >
             <Github size={28} className="text-custom-orange" />
           </motion.a>
           <motion.a
-            whileHover={{
-              scale: 1.2,
-              rotate: -5,
-              boxShadow: "0 0 20px rgba(255, 158, 0, 0.4)",
-            }}
+            whileHover={animations.socialHoverReverse}
             href="https://www.linkedin.com/in/zbaharyilmaz/"
-            className="p-4 bg-custom-orange/10 rounded-full hover:bg-custom-orange/20 transition-all duration-300 border border-custom-orange/30"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIcon}
           >
             <Linkedin size={28} className="text-custom-orange" />
           </motion.a>

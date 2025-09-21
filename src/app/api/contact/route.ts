@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: [email],
-      subject: "Mesajınız Alındı - Bahar Türksoy Portfolio",
+      subject: "Mesajınız Alındı - Bahar Turksoy Portfolio",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #FF9E00; text-align: center;">
@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #e8f4f8; padding: 15px; border-radius: 8px; margin-top: 20px;">
             <p style="margin: 0; color: #666; font-size: 14px; text-align: center;">
-              Bahar Türksoy<br>
+              Bahar Turksoy<br>
               Full Stack Developer
             </p>
           </div>

@@ -1,60 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Heart, Coffee, Lightbulb } from "lucide-react";
+import { interests } from "@/data/about";
+import { styles, fontFamily } from "@/utils/styles";
+import { animations, viewport } from "@/hooks/useAnimations";
 
 const About = () => {
-  const interests = [
-    {
-      icon: Code,
-      title: "Clean Code",
-      description: "Writing maintainable and scalable code is my passion.",
-    },
-    {
-      icon: Heart,
-      title: "User Experience",
-      description: "Creating intuitive and delightful user experiences.",
-    },
-    {
-      icon: Coffee,
-      title: "Continuous Learning",
-      description: "Always exploring new technologies and best practices.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "Finding creative solutions to complex problems.",
-    },
-  ];
-
   return (
     <section id="about" className="py-20 bg-dune-dark relative overflow-hidden">
       {/* Atmospheric Background Elements */}
-      <div className="absolute inset-0">
+      <div className={styles.backgroundOrb}>
         <motion.div
-          animate={{
-            x: [0, 80, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={animations.backgroundOrb1.animate}
+          transition={animations.backgroundOrb1.transition}
           className="absolute top-1/3 right-1/4 w-56 h-56 bg-dune-gold/5 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{
-            x: [0, -60, 0],
-            y: [0, 50, 0],
-            scale: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={animations.backgroundOrb2.animate}
+          transition={animations.backgroundOrb2.transition}
           className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-dune-gold/8 rounded-full blur-2xl"
         />
       </div>
@@ -62,16 +25,22 @@ const About = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={animations.fadeInUp.initial}
+          whileInView={animations.fadeInUp.animate}
+          transition={animations.fadeInUp.transition}
+          viewport={viewport}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-display">
+          <h2
+            className={styles.sectionTitle}
+            style={{ fontFamily }}
+          >
             About Me
           </h2>
-          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-sans">
+          <p
+            className={styles.sectionSubtitle}
+            style={{ fontFamily }}
+          >
             Passionate developer crafting digital experiences with creativity
             and precision.
           </p>
@@ -80,14 +49,22 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* About Text */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={animations.fadeInLeft.initial}
+            whileInView={animations.fadeInLeft.animate}
+            transition={animations.fadeInLeft.transition}
+            viewport={viewport}
             className="space-y-6"
           >
-            <h3 className="text-3xl font-bold text-dune-gold mb-6">My Story</h3>
-            <p className="text-dune-sand/80 leading-relaxed">
+            <h3
+              className="text-3xl font-bold text-dune-gold mb-6"
+              style={{ fontFamily }}
+            >
+              My Story
+            </h3>
+            <p
+              className={styles.bodyText}
+              style={{ fontFamily }}
+            >
               With a solid background shaped by years of working with
               mathematics and algorithms, I bring strong problem-solving
               abilities and a passion for continuous learning to every project I
@@ -96,30 +73,34 @@ const About = () => {
               building responsive, user-friendly, and high-performing web
               applications.
             </p>
-            <p className="text-dune-sand/80 leading-relaxed">
-              I actively use CSS, Sass, Bootstrap, Material UI, Styled
-              Components, and Tailwind CSS to craft clean and scalable
-              interfaces. I believe that true quality lies in the details—both
-              in code and in user experience. By keeping up with the latest
-              tools, libraries, and best practices, I constantly strive to grow
-              as a developer and deliver solutions that are not only functional
-              but impactful.
-            </p>
-            <p className="text-dune-sand/80 leading-relaxed">
-              This journey is far from over—each line of code is a step toward
-              mastering the craft.
+            <p
+              className={styles.bodyText}
+              style={{ fontFamily }}
+            >
+              I actively work with modern technologies such as React,
+              JavaScript, TypeScript, Next.js, Tailwind CSS, Prisma, NextAuth,
+              MongoDB, Express.js, Material UI, Formik, Yup, Zod, Zustand,
+              Redux, REST API, Firebase, Sass, Bootstrap, HTML5, and CSS3 to
+              build clean, scalable, and high-performance web applications. I
+              believe that true quality lies in the details—both in code and in
+              user experience. By keeping up with the latest tools, libraries,
+              and best practices, I constantly strive to grow as a developer and
+              deliver solutions that are not only functional but impactful.
             </p>
           </motion.div>
 
           {/* Interests */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={animations.fadeInRight.initial}
+            whileInView={animations.fadeInRight.animate}
+            transition={animations.fadeInRight.transition}
+            viewport={viewport}
             className="space-y-6"
           >
-            <h3 className="text-3xl font-bold text-dune-gold mb-6">
+            <h3
+              className="text-3xl font-bold text-dune-gold mb-6"
+              style={{ fontFamily }}
+            >
               What Drives Me
             </h3>
             <div className="grid gap-6">
@@ -129,7 +110,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={viewport}
                   whileHover={{ x: 10 }}
                   className="flex items-start space-x-4 p-4 bg-white/5 rounded-xl border border-dune-gold/20 hover:border-dune-gold/50 transition-all duration-300"
                 >
@@ -137,10 +118,18 @@ const About = () => {
                     <interest.icon size={24} className="text-dune-gold" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-dune-sand mb-2">
+                    <h4
+                      className="text-lg font-bold text-dune-sand mb-2"
+                      style={{ fontFamily }}
+                    >
                       {interest.title}
                     </h4>
-                    <p className="text-dune-sand/80">{interest.description}</p>
+                    <p
+                      className={styles.bodyTextSmall}
+                      style={{ fontFamily }}
+                    >
+                      {interest.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}

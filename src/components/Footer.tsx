@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, ExternalLink } from "lucide-react";
+import { quickLinks } from "@/data/navigation";
+import { styles, fontFamily } from "@/utils/styles";
+import { animations, viewport } from "@/hooks/useAnimations";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,17 +24,10 @@ const Footer = () => {
     },
   ];
 
-  const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Tech", href: "#tech" },
-    { name: "Work", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
     <footer className="bg-black border-t border-dune-gold/20 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0">
+      <div className={styles.backgroundOrb}>
         <motion.div
           animate={{
             x: [0, 50, 0],
@@ -59,13 +55,16 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={viewport}
             className="space-y-2"
           >
-            <h3 className="text-xl font-bold text-dune-gold font-display">
-              BAHAR TÜRKSOY
+            <h3 className={styles.footerBrandTitle} style={{ fontFamily }}>
+              BAHAR TURKSOY
             </h3>
-            <p className="text-dune-gold/80 font-sans leading-relaxed text-sm">
+            <p
+              className={`${styles.footerText} leading-relaxed`}
+              style={{ fontFamily }}
+            >
               Full Stack Developer crafting modern web experiences with passion
               and precision.
             </p>
@@ -74,15 +73,13 @@ const Footer = () => {
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    scale: 1.2,
-                    rotate: 5,
-                    boxShadow: "0 0 20px rgba(255, 158, 0, 0.4)",
-                  }}
+                  viewport={viewport}
+                  whileHover={animations.socialHover}
                   className={`p-2 bg-dune-gold/10 rounded-full hover:bg-dune-gold/20 transition-all duration-300 border border-dune-gold/30 text-dune-gold ${social.color}`}
                 >
                   <social.icon size={16} />
@@ -96,10 +93,10 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={viewport}
             className="space-y-2"
           >
-            <h4 className="text-lg font-bold text-dune-gold font-display">
+            <h4 className={styles.footerTitle} style={{ fontFamily }}>
               Quick Links
             </h4>
             <ul className="space-y-0.5">
@@ -109,11 +106,12 @@ const Footer = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={viewport}
                 >
                   <a
                     href={link.href}
-                    className="text-dune-gold/80 hover:text-dune-gold transition-colors font-sans"
+                    className="text-dune-gold/80 hover:text-dune-gold transition-colors"
+                    style={{ fontFamily }}
                   >
                     {link.name}
                   </a>
@@ -127,14 +125,14 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+            viewport={viewport}
             className="space-y-2"
           >
-            <h4 className="text-lg font-bold text-dune-gold font-display">
+            <h4 className={styles.footerTitle} style={{ fontFamily }}>
               Get In Touch
             </h4>
             <div className="space-y-2">
-              <p className="text-dune-gold/80 font-sans text-sm">
+              <p className={styles.footerText} style={{ fontFamily }}>
                 Ready to work together?
               </p>
               <motion.a
@@ -142,10 +140,11 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 font-sans text-sm"
+                className="inline-flex items-center px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 text-base"
+                style={{ fontFamily }}
               >
-                <Linkedin size={14} className="mr-2" />
-                Connect on LinkedIn
+                <Linkedin size={14} className="mr-2 text-black" />
+                Connect
               </motion.a>
             </div>
           </motion.div>
@@ -156,16 +155,18 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
+          viewport={viewport}
           className="border-t border-dune-gold/20 mt-6 pt-4"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-dune-gold/60 font-sans text-sm">
-              © {currentYear} Bahar Türksoy. All rights reserved.
+            <p className="text-dune-gold/60 text-base" style={{ fontFamily }}>
+              © {currentYear} Bahar Turksoy. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
               <motion.a
-                href="https://github.com/baharturksoy/portfolio"
+                href="https://github.com/zbaharyilmaz/developer-portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 className="text-dune-gold/60 hover:text-dune-gold transition-colors"
               >

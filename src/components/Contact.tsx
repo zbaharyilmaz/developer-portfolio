@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { styles, fontFamily } from "@/utils/styles";
+import { animations, viewport } from "@/hooks/useAnimations";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +50,7 @@ const Contact = () => {
       if (response.ok) {
         setSubmitStatus({
           type: "success",
-          message: result.message || "Mesajınız başarıyla gönderildi!",
+          message: result.message || "Your message has been sent successfully!",
         });
         setFormData({
           firstName: "",
@@ -60,13 +62,13 @@ const Contact = () => {
       } else {
         setSubmitStatus({
           type: "error",
-          message: result.error || "Bir hata oluştu. Lütfen tekrar deneyiniz.",
+          message: result.error || "An error occurred. Please try again.",
         });
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
-        message: "Bağlantı hatası. Lütfen tekrar deneyiniz.",
+        message: "Connection error. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -79,31 +81,15 @@ const Contact = () => {
       className="py-20 bg-gray-900 relative overflow-hidden"
     >
       {/* Atmospheric Background Elements */}
-      <div className="absolute inset-0">
+      <div className={styles.backgroundOrb}>
         <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={animations.backgroundOrb1.animate}
+          transition={animations.backgroundOrb1.transition}
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-dune-gold/5 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={animations.backgroundOrb2.animate}
+          transition={animations.backgroundOrb2.transition}
           className="absolute bottom-1/3 right-1/3 w-48 h-48 bg-dune-gold/8 rounded-full blur-2xl"
         />
       </div>
@@ -111,16 +97,19 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={animations.fadeInUp.initial}
+          whileInView={animations.fadeInUp.animate}
+          transition={animations.fadeInUp.transition}
+          viewport={viewport}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-display">
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold"
+            style={{ fontFamily }}
+          >
             Contact
           </h2>
-          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-sans">
+          <p className={styles.sectionSubtitleSmall} style={{ fontFamily }}>
             Get in touch with me for your projects. Together we can create
             amazing things!
           </p>
@@ -129,16 +118,12 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white/10 rounded-xl p-8 border border-dune-gold/20"
+            initial={animations.fadeInUp.initial}
+            whileInView={animations.fadeInUp.animate}
+            transition={animations.fadeInUp.transition}
+            viewport={viewport}
+            className={styles.card}
           >
-            <h3 className="text-2xl font-bold mb-6 text-dune-gold">
-              Mesaj Gönder
-            </h3>
-
             {/* Status Messages */}
             {submitStatus.type && (
               <motion.div
@@ -163,18 +148,19 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={viewport}
                 >
-                  <label className="block text-sm font-medium text-dune-sand mb-2">
-                    Ad
+                  <label className={styles.formLabel} style={{ fontFamily }}>
+                    First Name
                   </label>
                   <input
                     type="text"
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/15 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
-                    placeholder="Adınız"
+                    className={styles.formInput}
+                    placeholder="Your first name"
+                    style={{ fontFamily }}
                     required
                   />
                 </motion.div>
@@ -182,18 +168,19 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
+                  viewport={viewport}
                 >
-                  <label className="block text-sm font-medium text-dune-sand mb-2">
-                    Soyad
+                  <label className={styles.formLabel} style={{ fontFamily }}>
+                    Last Name
                   </label>
                   <input
                     type="text"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/15 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
-                    placeholder="Soyadınız"
+                    className={styles.formInput}
+                    placeholder="Your last name"
+                    style={{ fontFamily }}
                     required
                   />
                 </motion.div>
@@ -203,9 +190,9 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
+                viewport={viewport}
               >
-                <label className="block text-sm font-medium text-dune-sand mb-2">
+                <label className={styles.formLabel} style={{ fontFamily }}>
                   Email
                 </label>
                 <input
@@ -215,6 +202,7 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
                   placeholder="email@example.com"
+                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -223,10 +211,10 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
+                viewport={viewport}
               >
-                <label className="block text-sm font-medium text-dune-sand mb-2">
-                  Konu
+                <label className={styles.formLabel} style={{ fontFamily }}>
+                  Subject
                 </label>
                 <input
                   type="text"
@@ -234,7 +222,8 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
-                  placeholder="Proje konusu"
+                  placeholder="Subject"
+                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -243,10 +232,10 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
+                viewport={viewport}
               >
-                <label className="block text-sm font-medium text-dune-sand mb-2">
-                  Mesaj
+                <label className={styles.formLabel} style={{ fontFamily }}>
+                  Message
                 </label>
                 <textarea
                   rows={5}
@@ -254,7 +243,8 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors resize-none text-dune-sand placeholder-dune-sand/50"
-                  placeholder="Mesajınızı buraya yazın..."
+                  placeholder="Write your message here..."
+                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -265,17 +255,18 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                viewport={{ once: true }}
+                viewport={viewport}
                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 text-dune-dark font-sans ${
+                className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 text-dune-dark ${
                   isSubmitting
                     ? "bg-gray-500 cursor-not-allowed"
                     : "bg-dune-gold hover:bg-dune-gold/90"
                 }`}
+                style={{ fontFamily }}
               >
                 <Send size={20} className="text-dune-dark" />
-                <span>{isSubmitting ? "Gönderiliyor..." : "Mesaj Gönder"}</span>
+                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
               </motion.button>
             </form>
           </motion.div>
