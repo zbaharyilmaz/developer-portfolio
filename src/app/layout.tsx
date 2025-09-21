@@ -43,12 +43,6 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
         <link
           href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap"
           rel="stylesheet"
