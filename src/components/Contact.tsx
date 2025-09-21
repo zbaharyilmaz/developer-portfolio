@@ -23,18 +23,54 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic here
-    console.log("Form submitted:", formData);
-    alert("Mesajınız gönderildi! En kısa sürede size dönüş yapacağım.");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: result.message || "Mesajınız başarıyla gönderildi!",
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: result.error || "Bir hata oluştu. Lütfen tekrar deneyiniz.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Bağlantı hatası. Lütfen tekrar deneyiniz.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,10 +117,10 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-retro">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-display">
             Contact
           </h2>
-          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-mono">
+          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-sans">
             Get in touch with me for your projects. Together we can create
             amazing things!
           </p>
@@ -102,6 +138,25 @@ const Contact = () => {
             <h3 className="text-2xl font-bold mb-6 text-dune-gold">
               Mesaj Gönder
             </h3>
+
+            {/* Status Messages */}
+            {submitStatus.type && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mb-6 p-4 rounded-lg ${
+                  submitStatus.type === "success"
+                    ? "bg-green-500/20 border border-green-500/30 text-green-400"
+                    : "bg-red-500/20 border border-red-500/30 text-red-400"
+                }`}
+              >
+                <p className="font-medium">
+                  {submitStatus.type === "success" ? "✅" : "❌"}{" "}
+                  {submitStatus.message}
+                </p>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div
@@ -206,16 +261,21 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
+                disabled={isSubmitting}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 bg-dune-gold rounded-lg font-medium hover:bg-dune-gold/90 transition-all duration-300 flex items-center justify-center space-x-2 text-dune-dark font-mono"
+                whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 text-dune-dark font-sans ${
+                  isSubmitting
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-dune-gold hover:bg-dune-gold/90"
+                }`}
               >
                 <Send size={20} className="text-dune-dark" />
-                <span>Mesaj Gönder</span>
+                <span>{isSubmitting ? "Gönderiliyor..." : "Mesaj Gönder"}</span>
               </motion.button>
             </form>
           </motion.div>

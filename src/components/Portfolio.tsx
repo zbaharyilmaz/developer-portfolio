@@ -228,10 +228,10 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-retro">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-display">
             My Works
           </h2>
-          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-mono">
+          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-sans">
             A collection of projects that showcase my skills and passion for
             development.
           </p>
@@ -337,7 +337,7 @@ const Portfolio = () => {
               onClick={() => setShowAll(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-3 bg-dune-gold/10 text-dune-gold rounded-full font-medium hover:bg-dune-gold/20 transition-all duration-300 font-mono border border-dune-gold/20"
+              className="inline-flex items-center px-8 py-3 bg-dune-gold/10 text-dune-gold rounded-full font-medium hover:bg-dune-gold/20 transition-all duration-300 font-sans border border-dune-gold/20"
             >
               <span>Show More Projects</span>
               <ChevronDown size={20} className="ml-2" />
@@ -366,7 +366,7 @@ const Portfolio = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-3 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 font-mono"
+              className="inline-flex items-center px-8 py-3 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 font-sans"
             >
               <span>Get In Touch</span>
             </motion.a>

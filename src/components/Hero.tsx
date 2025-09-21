@@ -19,19 +19,19 @@ const Hero = () => {
       {/* Parallax Layer 1 - Dark Overlay */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]) }}
-        className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"
+        className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"
       />
 
       {/* Parallax Layer 2 - Atmospheric Fog */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]) }}
-        className="absolute inset-0 bg-gradient-to-t from-custom-green/90 via-transparent to-custom-green/80"
+        className="absolute inset-0 bg-gradient-to-t from-custom-green/50 via-transparent to-custom-green/40"
       />
 
       {/* Parallax Layer 3 - Subtle Texture */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "10%"]) }}
-        className="absolute inset-0 bg-gradient-to-br from-transparent via-black/20 to-transparent"
+        className="absolute inset-0 bg-gradient-to-br from-transparent via-black/10 to-transparent"
       />
 
       {/* Floating Code Particles with Parallax */}
@@ -39,7 +39,7 @@ const Hero = () => {
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-custom-orange/20 font-mono text-xs"
+            className="absolute text-custom-orange/15 font-mono text-xs"
             initial={{
               x:
                 Math.random() *
@@ -51,7 +51,7 @@ const Hero = () => {
             }}
             animate={{
               y: [null, -200],
-              opacity: [0, 0.6, 0],
+              opacity: [0, 0.3, 0],
             }}
             transition={{
               duration: Math.random() * 15 + 15,
@@ -73,7 +73,7 @@ const Hero = () => {
               "Next.js",
               "TypeScript",
             ].map((code, idx) => (
-              <div key={idx} className="mb-1 opacity-70">
+              <div key={idx} className="mb-1 opacity-50">
                 {code}
               </div>
             ))}
@@ -94,7 +94,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-custom-orange/15 to-custom-orange/10 rounded-full blur-xl"
+          className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-custom-orange/10 to-custom-orange/5 rounded-full blur-xl"
         />
         <motion.div
           animate={{
@@ -107,7 +107,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-custom-orange/10 to-custom-orange/5 rounded-full blur-xl"
+          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-custom-orange/8 to-custom-orange/3 rounded-full blur-xl"
         />
         <motion.div
           animate={{
@@ -120,20 +120,20 @@ const Hero = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-custom-orange/15 to-custom-orange/8 rounded-full blur-lg"
+          className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-custom-orange/10 to-custom-orange/5 rounded-full blur-lg"
         />
       </div>
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 text-center max-w-5xl mx-auto px-6"
+        className="relative z-20 text-center max-w-5xl mx-auto px-6"
       >
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-4xl md:text-6xl font-bold mb-8 text-dune-gold font-retro"
+          className="text-4xl md:text-6xl font-bold mb-8 text-dune-gold font-display drop-shadow-2xl"
         >
           Bahar Türksoy
         </motion.h1>
@@ -143,7 +143,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-2xl md:text-3xl text-dune-sand mb-16 font-light tracking-wider font-mono"
+          className="text-2xl md:text-3xl text-dune-sand mb-16 font-light tracking-wider font-sans drop-shadow-lg"
         >
           Full Stack Development
         </motion.p>
@@ -162,7 +162,7 @@ const Hero = () => {
               boxShadow: "0 0 30px rgba(255, 158, 0, 0.5)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-dune-gold rounded-full font-medium text-dune-dark hover:bg-dune-gold/90 transition-all duration-300 border border-dune-gold/30 font-mono"
+            className="px-10 py-4 bg-dune-gold rounded-full font-medium text-dune-dark hover:bg-dune-gold/90 transition-all duration-300 border border-dune-gold/30 font-sans"
           >
             View My Work
           </motion.a>
@@ -176,7 +176,7 @@ const Hero = () => {
               boxShadow: "0 0 30px rgba(255, 158, 0, 0.3)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 border border-dune-gold rounded-full font-medium text-dune-gold hover:bg-dune-gold/10 transition-all duration-300 font-mono"
+            className="px-10 py-4 border border-dune-gold rounded-full font-medium text-dune-gold hover:bg-dune-gold/10 transition-all duration-300 font-sans"
           >
             Get In Touch
           </motion.a>

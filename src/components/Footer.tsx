@@ -62,10 +62,10 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-2"
           >
-            <h3 className="text-xl font-bold text-dune-gold font-retro">
+            <h3 className="text-xl font-bold text-dune-gold font-display">
               BAHAR TÜRKSOY
             </h3>
-            <p className="text-dune-gold/80 font-mono leading-relaxed text-sm">
+            <p className="text-dune-gold/80 font-sans leading-relaxed text-sm">
               Full Stack Developer crafting modern web experiences with passion
               and precision.
             </p>
@@ -99,7 +99,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-2"
           >
-            <h4 className="text-lg font-bold text-dune-gold font-retro">
+            <h4 className="text-lg font-bold text-dune-gold font-display">
               Quick Links
             </h4>
             <ul className="space-y-0.5">
@@ -113,7 +113,7 @@ const Footer = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-dune-gold/80 hover:text-dune-gold transition-colors font-mono"
+                    className="text-dune-gold/80 hover:text-dune-gold transition-colors font-sans"
                   >
                     {link.name}
                   </a>
@@ -130,11 +130,11 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-2"
           >
-            <h4 className="text-lg font-bold text-dune-gold font-retro">
+            <h4 className="text-lg font-bold text-dune-gold font-display">
               Get In Touch
             </h4>
             <div className="space-y-2">
-              <p className="text-dune-gold/80 font-mono text-sm">
+              <p className="text-dune-gold/80 font-sans text-sm">
                 Ready to work together?
               </p>
               <motion.a
@@ -142,7 +142,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 font-mono text-sm"
+                className="inline-flex items-center px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 font-sans text-sm"
               >
                 <Linkedin size={14} className="mr-2" />
                 Connect on LinkedIn
@@ -160,7 +160,7 @@ const Footer = () => {
           className="border-t border-dune-gold/20 mt-6 pt-4"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-dune-gold/60 font-mono text-sm">
+            <p className="text-dune-gold/60 font-sans text-sm">
               © {currentYear} Bahar Türksoy. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">

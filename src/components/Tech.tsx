@@ -119,10 +119,10 @@ const Tech = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-retro">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold font-display">
             Technologies
           </h2>
-          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-mono">
+          <p className="text-xl text-dune-sand/80 max-w-3xl mx-auto font-sans">
             Tools and technologies I use to bring ideas to life.
           </p>
         </motion.div>

@@ -27,9 +27,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["Raleway", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
-        retro: ["Space Mono", "monospace"],
+        display: ["Raleway", "sans-serif"],
       },
       animation: {
         gradient: "gradient 3s ease infinite",

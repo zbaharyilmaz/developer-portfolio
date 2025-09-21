@@ -45,7 +45,7 @@ const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -2, color: "#FF9E00" }}
-                className="text-sm font-medium text-dune-gold/80 hover:text-dune-gold transition-colors tracking-wider uppercase font-mono"
+                className="text-sm font-medium text-dune-gold/80 hover:text-dune-gold transition-colors tracking-wider uppercase font-sans"
               >
                 {item.name}
               </motion.a>
@@ -62,7 +62,7 @@ const Navigation = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: (index + 2) * 0.1 }}
                 whileHover={{ y: -2, color: "#FF9E00" }}
-                className="text-sm font-medium text-dune-gold/80 hover:text-dune-gold transition-colors tracking-wider uppercase font-mono"
+                className="text-sm font-medium text-dune-gold/80 hover:text-dune-gold transition-colors tracking-wider uppercase font-sans"
               >
                 {item.name}
               </motion.a>
