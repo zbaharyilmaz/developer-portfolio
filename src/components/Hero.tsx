@@ -146,10 +146,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-3xl md:text-4xl text-dune-sand mb-16 font-light tracking-wider drop-shadow-lg"
+          className="text-2xl md:text-3xl text-dune-sand mb-16 font-light tracking-wider drop-shadow-lg"
           style={{ fontFamily }}
         >
-          Full Stack Development
+          Software Developer with hands-on experience, focusing primarily on
+          frontend development while also contributing to backend systems.
         </motion.p>
 
         {/* Magical CTA Buttons */}

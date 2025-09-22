@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bahar Turksoy - Frontend Developer",
+  title: "Bahar Turksoy - Software Developer",
   description:
-    "Modern web teknolojileri ile kullanıcı deneyimini ön planda tutan, yaratıcı ve işlevsel çözümler geliştiren Frontend Developer.",
+    "Software Developer who develops creative and functional solutions with modern web technologies, prioritizing user experience.",
   keywords: [
-    "frontend developer",
+    "software developer",
     "react",
     "typescript",
     "next.js",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://baharturksoy.com",
-    title: "Bahar Turksoy - Frontend Developer",
+    title: "Bahar Turksoy - Software Developer",
     description:
-      "Modern web teknolojileri ile kullanıcı deneyimini ön planda tutan, yaratıcı ve işlevsel çözümler geliştiren Frontend Developer.",
+      "Software Developer who develops creative and functional solutions with modern web technologies, prioritizing user experience.",
     siteName: "Bahar Turksoy Portfolio",
   },
 };
