@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send } from "lucide-react";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations, viewport } from "@/hooks/useAnimations";
 
 const Contact = () => {
@@ -80,7 +80,7 @@ const Contact = () => {
       id="contact"
       className="py-20 bg-gray-900 relative overflow-hidden"
     >
-      {/* Atmospheric Background Elements */}
+      {/* Background Elements */}
       <div className={styles.backgroundOrb}>
         <motion.div
           animate={animations.backgroundOrb1.animate}
@@ -103,13 +103,10 @@ const Contact = () => {
           viewport={viewport}
           className="text-center mb-16"
         >
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold"
-            style={{ fontFamily }}
-          >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dune-gold">
             Contact
           </h2>
-          <p className={styles.sectionSubtitleSmall} style={{ fontFamily }}>
+          <p className={`${styles.sectionSubtitleSmall} text-center`}>
             Get in touch with me for your projects. Together we can create
             amazing things!
           </p>
@@ -150,9 +147,7 @@ const Contact = () => {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   viewport={viewport}
                 >
-                  <label className={styles.formLabel} style={{ fontFamily }}>
-                    First Name
-                  </label>
+                  <label className={styles.formLabel}>First Name</label>
                   <input
                     type="text"
                     name="firstName"
@@ -160,7 +155,6 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className={styles.formInput}
                     placeholder="Your first name"
-                    style={{ fontFamily }}
                     required
                   />
                 </motion.div>
@@ -170,9 +164,7 @@ const Contact = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={viewport}
                 >
-                  <label className={styles.formLabel} style={{ fontFamily }}>
-                    Last Name
-                  </label>
+                  <label className={styles.formLabel}>Last Name</label>
                   <input
                     type="text"
                     name="lastName"
@@ -180,7 +172,6 @@ const Contact = () => {
                     onChange={handleInputChange}
                     className={styles.formInput}
                     placeholder="Your last name"
-                    style={{ fontFamily }}
                     required
                   />
                 </motion.div>
@@ -192,9 +183,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={viewport}
               >
-                <label className={styles.formLabel} style={{ fontFamily }}>
-                  Email
-                </label>
+                <label className={styles.formLabel}>Email</label>
                 <input
                   type="email"
                   name="email"
@@ -202,7 +191,6 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
                   placeholder="email@example.com"
-                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -213,9 +201,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={viewport}
               >
-                <label className={styles.formLabel} style={{ fontFamily }}>
-                  Subject
-                </label>
+                <label className={styles.formLabel}>Subject</label>
                 <input
                   type="text"
                   name="subject"
@@ -223,7 +209,6 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors text-dune-sand placeholder-dune-sand/50"
                   placeholder="Subject"
-                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -234,9 +219,7 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={viewport}
               >
-                <label className={styles.formLabel} style={{ fontFamily }}>
-                  Message
-                </label>
+                <label className={styles.formLabel}>Message</label>
                 <textarea
                   rows={5}
                   name="message"
@@ -244,7 +227,6 @@ const Contact = () => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-dune-gold/20 rounded-lg focus:border-dune-gold focus:outline-none transition-colors resize-none text-dune-sand placeholder-dune-sand/50"
                   placeholder="Write your message here..."
-                  style={{ fontFamily }}
                   required
                 />
               </motion.div>
@@ -258,12 +240,11 @@ const Contact = () => {
                 viewport={viewport}
                 whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                className={`w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-2 text-dune-dark ${
+                className={`w-full px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2 text-sm sm:text-base text-dune-dark ${
                   isSubmitting
                     ? "bg-gray-500 cursor-not-allowed"
-                    : "bg-dune-gold hover:bg-dune-gold/90"
+                    : "bg-dune-gold hover:bg-dune-gold/90 cursor-pointer"
                 }`}
-                style={{ fontFamily }}
               >
                 <Send size={20} className="text-dune-dark" />
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>

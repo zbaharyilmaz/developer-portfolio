@@ -5,7 +5,7 @@ import { ExternalLink, Github, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import { projects } from "@/data/projects";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations, viewport } from "@/hooks/useAnimations";
 
 const Portfolio = () => {
@@ -17,7 +17,7 @@ const Portfolio = () => {
       id="portfolio"
       className="py-20 bg-dune-dark relative overflow-hidden"
     >
-      {/* Atmospheric Background Elements */}
+      {/* Background Elements */}
       <div className={styles.backgroundOrb}>
         <motion.div
           animate={animations.backgroundOrb1.animate}
@@ -40,10 +40,8 @@ const Portfolio = () => {
           viewport={viewport}
           className="text-center mb-16"
         >
-          <h2 className={styles.sectionTitle} style={{ fontFamily }}>
-            Portfolio
-          </h2>
-          <p className={styles.sectionSubtitle} style={{ fontFamily }}>
+          <h2 className={styles.sectionTitle}>Portfolio</h2>
+          <p className={`${styles.sectionSubtitle} text-center`}>
             A showcase of my recent projects and creative solutions.
           </p>
         </motion.div>
@@ -64,29 +62,24 @@ const Portfolio = () => {
               className={`${styles.card} ${styles.cardHover} group`}
             >
               {/* Project Image */}
-              <div className="relative h-48 mb-6 rounded-lg overflow-hidden">
+              <div className="relative h-48 mb-6 rounded-xl overflow-hidden shadow-lg group-hover:shadow-dune-gold/20 transition-all duration-500">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
                   unoptimized
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-dune-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Project Info */}
               <div className="space-y-4">
-                <h3
-                  className="text-xl font-bold text-dune-sand"
-                  style={{ fontFamily }}
-                >
+                <h3 className="text-xl font-bold text-dune-sand">
                   {project.title}
                 </h3>
-                <p
-                  className="text-dune-sand/80 leading-relaxed text-lg"
-                  style={{ fontFamily }}
-                >
+                <p className="text-dune-sand/80 leading-relaxed text-lg text-justify">
                   {project.description}
                 </p>
 
@@ -95,8 +88,7 @@ const Portfolio = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-dune-gold/10 text-dune-gold rounded-full text-sm border border-dune-gold/20"
-                      style={{ fontFamily }}
+                      className="px-3 py-1 bg-gradient-to-r from-dune-gold/10 to-dune-gold/5 text-dune-gold rounded-full text-sm border border-dune-gold/20 hover:from-dune-gold/20 hover:to-dune-gold/10 transition-all duration-300 backdrop-blur-sm"
                     >
                       {tech}
                     </span>
@@ -110,8 +102,8 @@ const Portfolio = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={animations.hoverSmall}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-dune-gold/10 border border-dune-gold/30 rounded-lg text-dune-gold hover:bg-dune-gold/20 transition-colors text-base"
-                    style={{ fontFamily }}
+                    className="flex-1 flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-dune-gold/10 border border-dune-gold/30 rounded-lg text-dune-gold hover:bg-dune-gold/20 transition-colors text-sm sm:text-base"
+                    aria-label={`View source code for ${project.title} (opens in new tab)`}
                   >
                     <Github size={16} />
                     View Code
@@ -121,8 +113,7 @@ const Portfolio = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={animations.hoverSmall}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-dune-gold text-dune-dark rounded-lg hover:bg-dune-gold/90 transition-colors text-base"
-                    style={{ fontFamily }}
+                    className="flex-1 flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 bg-dune-gold text-dune-dark rounded-lg hover:bg-dune-gold/90 transition-colors text-sm sm:text-base"
                   >
                     <ExternalLink size={16} />
                     Live Demo
@@ -146,7 +137,6 @@ const Portfolio = () => {
             whileHover={animations.hover}
             whileTap={{ scale: 0.95 }}
             className={`${styles.primaryButton} inline-flex items-center gap-2`}
-            style={{ fontFamily }}
           >
             <ChevronDown
               size={20}
@@ -166,13 +156,10 @@ const Portfolio = () => {
           viewport={viewport}
           className={`${styles.card} text-center`}
         >
-          <h3
-            className="text-2xl font-bold text-dune-gold mb-4"
-            style={{ fontFamily }}
-          >
+          <h3 className="text-2xl font-bold text-dune-gold mb-4">
             Let&apos;s Work Together
           </h3>
-          <p className="text-dune-sand/80 mb-6" style={{ fontFamily }}>
+          <p className="text-dune-sand/80 mb-6 text-center">
             Have a project in mind? Let&apos;s discuss how we can bring your
             ideas to life.
           </p>
@@ -182,7 +169,6 @@ const Portfolio = () => {
             rel="noopener noreferrer"
             whileHover={animations.hover}
             className={`${styles.secondaryButton} inline-flex items-center gap-2`}
-            style={{ fontFamily }}
           >
             <ExternalLink size={20} />
             Work Together

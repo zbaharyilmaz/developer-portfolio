@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations } from "@/hooks/useAnimations";
 
 const Hero = () => {
@@ -36,53 +36,6 @@ const Hero = () => {
         className="absolute inset-0 bg-gradient-to-br from-transparent via-black/10 to-transparent"
       />
 
-      {/* Floating Code Particles with Parallax */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-custom-orange/15 font-mono text-xs"
-            initial={{
-              x:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1200),
-              y:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerHeight : 800),
-              opacity: 0,
-            }}
-            animate={{
-              y: [null, -200],
-              opacity: [0, 0.3, 0],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 15,
-              repeat: Infinity,
-              delay: Math.random() * 8,
-            }}
-            style={{
-              transform: `translateZ(${Math.random() * 100}px)`,
-            }}
-          >
-            {[
-              "<div>",
-              "</div>",
-              "{ }",
-              "const",
-              "function",
-              "return",
-              "React",
-              "Next.js",
-              "TypeScript",
-            ].map((code, idx) => (
-              <div key={idx} className="mb-1 opacity-50">
-                {code}
-              </div>
-            ))}
-          </motion.div>
-        ))}
-      </div>
-
       {/* Magical Orbs */}
       <div className="absolute inset-0">
         <motion.div
@@ -96,7 +49,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-custom-orange/10 to-custom-orange/5 rounded-full blur-xl"
+          className="absolute top-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-dune-gold/15 to-custom-orange/10 rounded-full blur-xl shadow-dune-gold/20"
         />
         <motion.div
           animate={{
@@ -109,7 +62,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-custom-orange/8 to-custom-orange/3 rounded-full blur-xl"
+          className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-gradient-to-r from-dune-gold/12 to-custom-orange/8 rounded-full blur-xl shadow-dune-gold/15"
         />
         <motion.div
           animate={{
@@ -122,7 +75,7 @@ const Hero = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-custom-orange/10 to-custom-orange/5 rounded-full blur-lg"
+          className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-dune-gold/15 to-custom-orange/10 rounded-full blur-lg shadow-dune-gold/25"
         />
       </div>
 
@@ -136,7 +89,6 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 text-dune-gold drop-shadow-2xl"
-          style={{ fontFamily }}
         >
           BAHAR TURKSOY
         </motion.h1>
@@ -147,13 +99,12 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
           className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-dune-sand mb-12 sm:mb-16 font-light tracking-wider drop-shadow-lg px-2"
-          style={{ fontFamily }}
         >
           Software Developer with hands-on experience, focusing primarily on
           frontend development while also contributing to backend systems.
         </motion.p>
 
-        {/* Magical CTA Buttons */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -165,7 +116,7 @@ const Hero = () => {
             whileHover={animations.hover}
             whileTap={{ scale: 0.95 }}
             className={styles.primaryButton}
-            style={{ fontFamily }}
+            aria-label="Navigate to portfolio section"
           >
             🚀 Explore Projects
           </motion.a>
@@ -177,13 +128,13 @@ const Hero = () => {
             whileHover={animations.hover}
             whileTap={{ scale: 0.95 }}
             className={styles.secondaryButton}
-            style={{ fontFamily }}
+            aria-label="Connect on LinkedIn (opens in new tab)"
           >
             💬 Let&apos;s Connect
           </motion.a>
         </motion.div>
 
-        {/* Magical Social Links */}
+        {/* Social Links */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -196,6 +147,7 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialIcon}
+            aria-label="Visit GitHub profile (opens in new tab)"
           >
             <Github size={28} className="text-custom-orange" />
           </motion.a>
@@ -205,12 +157,11 @@ const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialIcon}
+            aria-label="Visit LinkedIn profile (opens in new tab)"
           >
             <Linkedin size={28} className="text-custom-orange" />
           </motion.a>
         </motion.div>
-
-        {/* Magical Scroll Indicator */}
       </motion.div>
     </section>
   );

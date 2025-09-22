@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { interests } from "@/data/about";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations, viewport } from "@/hooks/useAnimations";
 
 const About = () => {
   return (
     <section id="about" className="py-20 bg-dune-dark relative overflow-hidden">
-      {/* Atmospheric Background Elements */}
+      {/* Background Elements */}
       <div className={styles.backgroundOrb}>
         <motion.div
           animate={animations.backgroundOrb1.animate}
@@ -31,16 +31,8 @@ const About = () => {
           viewport={viewport}
           className="text-center mb-16"
         >
-          <h2
-            className={styles.sectionTitle}
-            style={{ fontFamily }}
-          >
-            About Me
-          </h2>
-          <p
-            className={styles.sectionSubtitle}
-            style={{ fontFamily }}
-          >
+          <h2 className={styles.sectionTitle}>About Me</h2>
+          <p className={styles.sectionSubtitle}>
             Passionate developer crafting digital experiences with creativity
             and precision.
           </p>
@@ -55,16 +47,8 @@ const About = () => {
             viewport={viewport}
             className="space-y-6"
           >
-            <h3
-              className="text-3xl font-bold text-dune-gold mb-6"
-              style={{ fontFamily }}
-            >
-              My Story
-            </h3>
-            <p
-              className={styles.bodyText}
-              style={{ fontFamily }}
-            >
+            <h3 className="text-3xl font-bold text-dune-gold mb-6">My Story</h3>
+            <p className={`${styles.bodyText} text-justify text-dune-sand`}>
               With a solid background shaped by years of working with
               mathematics and algorithms, I bring strong problem-solving
               abilities and a passion for continuous learning to every project I
@@ -73,10 +57,7 @@ const About = () => {
               building responsive, user-friendly, and high-performing web
               applications.
             </p>
-            <p
-              className={styles.bodyText}
-              style={{ fontFamily }}
-            >
+            <p className={`${styles.bodyText} text-justify text-dune-sand`}>
               I actively work with modern technologies such as React,
               JavaScript, TypeScript, Next.js, Tailwind CSS, Prisma, NextAuth,
               MongoDB, Express.js, Material UI, Formik, Yup, Zod, Zustand,
@@ -97,10 +78,7 @@ const About = () => {
             viewport={viewport}
             className="space-y-6"
           >
-            <h3
-              className="text-3xl font-bold text-dune-gold mb-6"
-              style={{ fontFamily }}
-            >
+            <h3 className="text-3xl font-bold text-dune-gold mb-6">
               What Drives Me
             </h3>
             <div className="grid gap-6">
@@ -118,16 +96,10 @@ const About = () => {
                     <interest.icon size={24} className="text-dune-gold" />
                   </div>
                   <div>
-                    <h4
-                      className="text-lg font-bold text-dune-sand mb-2"
-                      style={{ fontFamily }}
-                    >
+                    <h4 className="text-lg font-bold text-dune-sand mb-2">
                       {interest.title}
                     </h4>
-                    <p
-                      className={styles.bodyTextSmall}
-                      style={{ fontFamily }}
-                    >
+                    <p className={styles.bodyTextSmall}>
                       {interest.description}
                     </p>
                   </div>

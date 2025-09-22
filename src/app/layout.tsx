@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://baharturksoy.com",
+    url: "https://bahar-turksoy-portfolio.vercel.app/",
     title: "Bahar Turksoy - Software Developer",
     description:
       "Software Developer who develops creative and functional solutions with modern web technologies, prioritizing user experience.",

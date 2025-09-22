@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, ExternalLink } from "lucide-react";
 import { quickLinks } from "@/data/navigation";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations, viewport } from "@/hooks/useAnimations";
 
 const Footer = () => {
@@ -49,7 +49,7 @@ const Footer = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-6">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,13 +58,8 @@ const Footer = () => {
             viewport={viewport}
             className="space-y-2"
           >
-            <h3 className={styles.footerBrandTitle} style={{ fontFamily }}>
-              BAHAR TURKSOY
-            </h3>
-            <p
-              className={`${styles.footerText} leading-relaxed`}
-              style={{ fontFamily }}
-            >
+            <h3 className={styles.footerBrandTitle}>BAHAR TURKSOY</h3>
+            <p className={`${styles.footerText} leading-relaxed text-justify`}>
               Full Stack Developer crafting modern web experiences with passion
               and precision.
             </p>
@@ -94,12 +89,10 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={viewport}
-            className="space-y-2"
+            className="space-y-2 text-center"
           >
-            <h4 className={styles.footerTitle} style={{ fontFamily }}>
-              Quick Links
-            </h4>
-            <ul className="space-y-0.5">
+            <h4 className={styles.footerTitle}>Quick Links</h4>
+            <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -110,8 +103,7 @@ const Footer = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-dune-gold/80 hover:text-dune-gold transition-colors"
-                    style={{ fontFamily }}
+                    className="text-dune-gold/80 hover:text-dune-gold transition-colors block"
                   >
                     {link.name}
                   </a>
@@ -126,13 +118,11 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={viewport}
-            className="space-y-2"
+            className="space-y-2 text-right"
           >
-            <h4 className={styles.footerTitle} style={{ fontFamily }}>
-              Get In Touch
-            </h4>
+            <h4 className={styles.footerTitle}>Get In Touch</h4>
             <div className="space-y-2">
-              <p className={styles.footerText} style={{ fontFamily }}>
+              <p className={`${styles.footerText} text-right`}>
                 Ready to work together?
               </p>
               <motion.a
@@ -140,8 +130,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 text-base"
-                style={{ fontFamily }}
+                className="inline-flex items-center px-3 sm:px-4 py-2 bg-dune-gold text-dune-dark rounded-full font-medium hover:bg-dune-gold/90 transition-all duration-300 text-sm sm:text-base ml-auto"
               >
                 <Linkedin size={14} className="mr-2 text-black" />
                 Connect
@@ -159,7 +148,7 @@ const Footer = () => {
           className="border-t border-dune-gold/20 mt-6 pt-4"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-dune-gold/60 text-base" style={{ fontFamily }}>
+            <p className="text-dune-gold/60 text-base text-justify">
               © {currentYear} Bahar Turksoy. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Home } from "lucide-react";
 import { navItems } from "@/data/navigation";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations } from "@/hooks/useAnimations";
 
 const Navigation = () => {
@@ -56,9 +56,7 @@ const Navigation = () => {
                 className="flex items-center space-x-2 p-3 bg-dune-gold/10 rounded-full hover:bg-dune-gold/20 transition-all duration-300 border border-dune-gold/30 text-dune-gold"
               >
                 <Home size={20} />
-                <span className="font-medium text-sm" style={{ fontFamily }}>
-                  Home
-                </span>
+                <span className="font-medium text-sm">Home</span>
               </motion.a>
             </motion.div>
 
@@ -77,7 +75,6 @@ const Navigation = () => {
                     boxShadow: "0 0 20px rgba(255, 158, 0, 0.4)",
                   }}
                   className={`${styles.navLink} text-base font-medium text-dune-gold/80 hover:text-dune-gold transition-all duration-200 tracking-wider uppercase px-3 py-2 rounded-lg hover:bg-dune-gold/10`}
-                  style={{ fontFamily }}
                 >
                   {item.name}
                 </motion.a>
@@ -87,7 +84,10 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-dune-gold hover:text-dune-gold/80 transition-colors"
+              className="md:hidden p-2 text-dune-gold hover:text-dune-gold/80 transition-colors cursor-pointer"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -95,6 +95,8 @@ const Navigation = () => {
 
           {/* Mobile Navigation */}
           <motion.div
+            id="mobile-navigation"
+            role="navigation"
             initial={false}
             animate={{
               height: isOpen ? "auto" : 0,
@@ -108,7 +110,6 @@ const Navigation = () => {
                 href="#home"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center space-x-2 text-base font-medium text-dune-gold/80 hover:text-dune-gold transition-all duration-200 tracking-wider uppercase px-3 py-2 rounded-lg hover:bg-dune-gold/10 hover:scale-105 hover:drop-shadow-lg"
-                style={{ fontFamily }}
               >
                 <Home size={16} />
                 <span>Home</span>
@@ -119,7 +120,6 @@ const Navigation = () => {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`${styles.navLink} block text-base font-medium text-dune-gold/80 hover:text-dune-gold transition-all duration-200 tracking-wider uppercase px-3 py-2 rounded-lg hover:bg-dune-gold/10 hover:scale-105 hover:drop-shadow-lg`}
-                  style={{ fontFamily }}
                 >
                   {item.name}
                 </a>

@@ -24,7 +24,13 @@ const config: Config = {
             700: "#047857",
             600: "#059669",
           },
+          orange: "#ff8c00",
         },
+      },
+      boxShadow: {
+        "dune-gold": "0 0 20px rgba(212, 175, 55, 0.3)",
+        "dune-gold-lg": "0 0 30px rgba(212, 175, 55, 0.4)",
+        "custom-orange": "0 0 20px rgba(255, 140, 0, 0.3)",
       },
       fontFamily: {
         sans: ["Single Day", "cursive"],

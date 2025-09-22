@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { techCategories } from "@/data/technologies";
-import { styles, fontFamily } from "@/utils/styles";
+import { styles } from "@/utils/styles";
 import { animations, viewport } from "@/hooks/useAnimations";
 
 const Tech = () => {
   return (
     <section id="tech" className="py-20 bg-gray-900 relative overflow-hidden">
-      {/* Atmospheric Background Elements */}
+      {/* Background Elements */}
       <div className={styles.backgroundOrb}>
         <motion.div
           animate={animations.backgroundOrb1.animate}
@@ -31,10 +31,8 @@ const Tech = () => {
           viewport={viewport}
           className="text-center mb-16"
         >
-          <h2 className={styles.sectionTitle} style={{ fontFamily }}>
-            Technologies
-          </h2>
-          <p className={styles.sectionSubtitle} style={{ fontFamily }}>
+          <h2 className={styles.sectionTitle}>Technologies</h2>
+          <p className={`${styles.sectionSubtitle} text-center`}>
             Tools and technologies I use to bring ideas to life.
           </p>
         </motion.div>
@@ -55,10 +53,7 @@ const Tech = () => {
                 <div className="p-3 bg-dune-gold/10 rounded-full">
                   <category.icon size={24} className="text-dune-gold" />
                 </div>
-                <h3
-                  className="text-xl font-bold text-dune-gold"
-                  style={{ fontFamily }}
-                >
+                <h3 className="text-xl font-bold text-dune-gold">
                   {category.title}
                 </h3>
               </div>
@@ -75,16 +70,10 @@ const Tech = () => {
                     className="space-y-2"
                   >
                     <div className="flex justify-between items-center">
-                      <span
-                        className="text-dune-sand font-medium text-base"
-                        style={{ fontFamily }}
-                      >
+                      <span className="text-dune-sand font-medium text-base">
                         {tech.name}
                       </span>
-                      <span
-                        className="text-dune-gold/80 text-sm"
-                        style={{ fontFamily }}
-                      >
+                      <span className="text-dune-gold/80 text-sm">
                         {tech.level}%
                       </span>
                     </div>
@@ -113,13 +102,10 @@ const Tech = () => {
           className="mt-16 text-center"
         >
           <div className={`${styles.card} max-w-4xl mx-auto`}>
-            <h3
-              className="text-2xl font-bold text-dune-gold mb-4"
-              style={{ fontFamily }}
-            >
+            <h3 className="text-2xl font-bold text-dune-gold mb-4">
               Always Learning
             </h3>
-            <p className={styles.bodyText} style={{ fontFamily }}>
+            <p className={`${styles.bodyText} text-center`}>
               Technology evolves rapidly, and so do I. I&apos;m constantly
               exploring new frameworks, tools, and methodologies to stay at the
               forefront of web development. My passion for learning drives me to
