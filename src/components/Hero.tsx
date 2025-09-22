@@ -41,7 +41,7 @@ const Hero = () => {
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-custom-orange/20 font-mono text-xs"
+            className="absolute text-custom-orange/30 font-mono text-xs"
             initial={{
               x:
                 Math.random() *
@@ -53,7 +53,7 @@ const Hero = () => {
             }}
             animate={{
               y: [null, -200],
-              opacity: [0, 0.35, 0],
+              opacity: [0, 0.45, 0],
             }}
             transition={{
               duration: Math.random() * 15 + 15,
@@ -75,7 +75,7 @@ const Hero = () => {
               "Next.js",
               "TypeScript",
             ].map((code, idx) => (
-              <div key={idx} className="mb-1 opacity-55">
+              <div key={idx} className="mb-1 opacity-65">
                 {code}
               </div>
             ))}
