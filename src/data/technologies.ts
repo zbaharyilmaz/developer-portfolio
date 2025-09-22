@@ -45,7 +45,6 @@ export const techCategories: TechCategory[] = [
       { name: "PostgreSQL", level: 75 },
       { name: "MongoDB", level: 80 },
       { name: "Mongoose", level: 75 },
-      { name: "Python", level: 65 },
       { name: "REST API", level: 85 },
       { name: "Firebase Auth", level: 70 },
     ],

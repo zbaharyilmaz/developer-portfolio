@@ -48,6 +48,52 @@ const Footer = () => {
         />
       </div>
 
+      {/* Floating Code Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-dune-gold/20 font-mono text-xs"
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 1200),
+              y:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerHeight : 400),
+              opacity: 0,
+            }}
+            animate={{
+              y: [null, -150],
+              opacity: [0, 0.3, 0],
+            }}
+            transition={{
+              duration: Math.random() * 12 + 12,
+              repeat: Infinity,
+              delay: Math.random() * 6,
+            }}
+            style={{
+              transform: `translateZ(${Math.random() * 50}px)`,
+            }}
+          >
+            {[
+              "npm install",
+              "git commit",
+              "deploy",
+              "build",
+              "start",
+              "dev",
+              "test",
+              "lint",
+            ].map((code, idx) => (
+              <div key={idx} className="mb-1 opacity-50">
+                {code}
+              </div>
+            ))}
+          </motion.div>
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-6">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand Section */}

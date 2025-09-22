@@ -36,6 +36,53 @@ const Hero = () => {
         className="absolute inset-0 bg-gradient-to-br from-transparent via-black/10 to-transparent"
       />
 
+      {/* Floating Code Particles with Parallax */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-custom-orange/20 font-mono text-xs"
+            initial={{
+              x:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 1200),
+              y:
+                Math.random() *
+                (typeof window !== "undefined" ? window.innerHeight : 800),
+              opacity: 0,
+            }}
+            animate={{
+              y: [null, -200],
+              opacity: [0, 0.35, 0],
+            }}
+            transition={{
+              duration: Math.random() * 15 + 15,
+              repeat: Infinity,
+              delay: Math.random() * 8,
+            }}
+            style={{
+              transform: `translateZ(${Math.random() * 100}px)`,
+            }}
+          >
+            {[
+              "<div>",
+              "</div>",
+              "{ }",
+              "const",
+              "function",
+              "return",
+              "React",
+              "Next.js",
+              "TypeScript",
+            ].map((code, idx) => (
+              <div key={idx} className="mb-1 opacity-55">
+                {code}
+              </div>
+            ))}
+          </motion.div>
+        ))}
+      </div>
+
       {/* Magical Orbs */}
       <div className="absolute inset-0">
         <motion.div
