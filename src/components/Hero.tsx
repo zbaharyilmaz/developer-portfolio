@@ -128,14 +128,14 @@ const Hero = () => {
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-20 text-center max-w-5xl mx-auto px-6"
+        className="relative z-20 text-center max-w-5xl mx-auto px-4 sm:px-6"
       >
         {/* Main Title */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="text-5xl md:text-7xl font-bold mb-8 text-dune-gold drop-shadow-2xl"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 text-dune-gold drop-shadow-2xl"
           style={{ fontFamily }}
         >
           BAHAR TURKSOY
@@ -146,7 +146,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-2xl md:text-3xl text-dune-sand mb-16 font-light tracking-wider drop-shadow-lg"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-dune-sand mb-12 sm:mb-16 font-light tracking-wider drop-shadow-lg px-2"
           style={{ fontFamily }}
         >
           Software Developer with hands-on experience, focusing primarily on
@@ -158,7 +158,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-16 sm:mb-20 px-4"
         >
           <motion.a
             href="#portfolio"
@@ -188,7 +188,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="flex justify-center space-x-8 mb-12"
+          className="flex justify-center space-x-6 sm:space-x-8 mb-8 sm:mb-12"
         >
           <motion.a
             whileHover={animations.socialHover}
